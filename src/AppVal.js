@@ -12,7 +12,7 @@ function AppVal() {
   const [result, setResult] = useState('');
   const [warningMsg, setWarningMsg] = useState('');
 
-  const [showVaTrace, setShowVaTrace] = useState(false);
+  const [showVaTrace, setShowVaTrace] = useState(true);
   const [showWarning, setShowWarning] = useState(false);
   
 
@@ -54,6 +54,24 @@ function AppVal() {
         case "Action_operand_1_attach_three":
           setOperandOne(operandOne + '3')
           break;
+        case "Action_operand_1_attach_four":
+          setOperandOne(operandOne + '4')
+          break;
+        case "Action_operand_1_attach_five":
+          setOperandOne(operandOne + '5')
+          break;
+        case "Action_operand_1_attach_six":
+          setOperandOne(operandOne + '6')
+          break;
+        case "Action_operand_1_attach_seven":
+          setOperandOne(operandOne + '7')
+          break;
+        case "Action_operand_1_attach_eight":
+          setOperandOne(operandOne + '8')
+          break;
+        case "Action_operand_1_attach_nine":
+          setOperandOne(operandOne + '9')
+          break; 
         case "Action_waiting_for_operand_2_for_plus":
           // do nothing
           break;
@@ -68,6 +86,24 @@ function AppVal() {
           break;
         case "Action_operand_2_attach_three":
           setOperandTwo(operandTwo + '3')
+          break;
+        case "Action_operand_2_attach_four":
+          setOperandTwo(operandTwo + '4')
+          break;
+        case "Action_operand_2_attach_five":
+          setOperandTwo(operandTwo + '5')
+          break;
+        case "Action_operand_2_attach_six":
+          setOperandTwo(operandTwo + '6')
+          break;
+        case "Action_operand_2_attach_seven":
+          setOperandTwo(operandTwo + '7')
+          break;
+        case "Action_operand_2_attach_eight":
+          setOperandTwo(operandTwo + '8')
+          break;
+        case "Action_operand_2_attach_nine":
+          setOperandTwo(operandTwo + '9')
           break;
         case "Action_warning_10__Second_operand_is_missing":
           setWarningMsg('Second operand is missing');
