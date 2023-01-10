@@ -1,102 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-
-// how to show and hide components in react
-// https://www.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
-// how to show and hide div on button click in react js
-// https://youtu.be/uXk62ZgPH-4 
-
-
-const vaScript = {
-  "Action_init":{
-     "Direction_one":"Action_operand_1_attach_one",
-     "Direction_two":"Action_operand_1_attach_two",     
-     "Direction_three":"Action_operand_1_attach_three",     
-     "Direction_plus":"Action_init",
-     "Direction_equal":"Action_init",
-     "Direction_clear":"Action_clear"
-  },
-  "Action_operand_1_attach_one":{
-     "Direction_one":"Action_operand_1_attach_one",
-     "Direction_two":"Action_operand_1_attach_two",
-     "Direction_three":"Action_operand_1_attach_three",  
-     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-     "Direction_clear":"Action_clear"
-  },
-  "Action_operand_1_attach_two":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_operand_1_attach_three":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_warning_10__Second_operand_is_missing":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_warning_10__Second_operand_is_missing",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_waiting_for_operand_2_for_plus":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_operand_2_attach_one":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_operand_2_attach_two":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-   },
-  "Action_operand_2_attach_three":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-   },
-   "Action_clear":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_init",
-    "Direction_equal":"Action_init",
-    "Direction_clear":"Action_clear"
-   },
-   "Action_show_result":{
-    "Direction_one":"Action_clear",
-    "Direction_two":"Action_clear",
-    "Direction_three":"Action_clear",  
-    "Direction_plus":"Action_clear",
-    "Direction_equal":"Action_clear",
-    "Direction_clear":"Action_clear"
-   }
-  };
+import vaScript from './vaop/va-scripts/va-script-10.json';
 
 function AppVal() {
 
@@ -108,7 +12,7 @@ function AppVal() {
   const [result, setResult] = useState('');
   const [warningMsg, setWarningMsg] = useState('');
 
-  const [showVaTrace, setShowVaTrace] = useState(true);
+  const [showVaTrace, setShowVaTrace] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   
 
@@ -183,7 +87,7 @@ function AppVal() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Mini Regular and Binary Va-Calculator</h2>
+        <h2>Mini Regular & Binary Calculator</h2>
         {showWarning &&
           <p className = "App-header-warning">
             <small>{warningMsg}</small>
@@ -193,12 +97,12 @@ function AppVal() {
           [{operandOne}] + [{operandTwo}] = [{result}] 
         </p>
         <p> 
-          <DigitOne onClick={() => getAction('Direction_one')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <DigitTwo onClick={() => getAction('Direction_two')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <DigitThree onClick={() => getAction('Direction_three')}/><br/><br/>
-          <ActionPlus onClick={() => getAction('Direction_plus')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <ActionEqual onClick={() => getAction('Direction_equal')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <ActionClear onClick={() => getAction('Direction_clear')}/>
+          <CalcButton onClick={() => getAction('Direction_one')} buttonName = '1'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_two')} buttonName = '2'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_three')} buttonName = '3'/><br/><br/>
+          <CalcButton onClick={() => getAction('Direction_plus')} buttonName = '+'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_equal')} buttonName = '='/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_clear')} buttonName = 'CA'/>
         </p>
         <p>
           <ShowHideVaTrace onClick={()=>setShowVaTrace(!showVaTrace)} showVaTrace={showVaTrace}/>
@@ -232,7 +136,7 @@ function AppVal() {
         <p>
           <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
           Powered by <a className = "App-header-link" 
-          href="https://vaop.notion.site/eco-programming-VAOP-106f8ec4418d42bdbb5ec371e8ddada9" 
+          href="https://vaop.notion.site/82c7784f41af4739bf1a185fc4e12bbc" 
           target="_blank"><span>VAOP</span></a>
         </p>
       </header>
@@ -240,13 +144,7 @@ function AppVal() {
   );
 }
 
-function DigitOne({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;&nbsp;&nbsp;</button>);}
-function DigitTwo({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>2</b>&nbsp;&nbsp;&nbsp;</button>);}
-function DigitThree({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>3</b>&nbsp;&nbsp;&nbsp;</button>);}
-//
-function ActionPlus({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;&nbsp;</button>);}
-function ActionEqual({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>=</b>&nbsp;&nbsp;&nbsp;</button>);}
-function ActionClear({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>CA</b>&nbsp;&nbsp;&nbsp;</button>);}
+function CalcButton({onClick, buttonName}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>{buttonName}</b>&nbsp;&nbsp;&nbsp;</button>);}
 function ShowHideVaTrace({onClick, showVaTrace}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>{showVaTrace ? "Hide va-trace" : "Show va-trace"}</b>&nbsp;&nbsp;&nbsp;</button>);}
 
 export default AppVal;
