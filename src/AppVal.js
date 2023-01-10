@@ -42,6 +42,9 @@ function AppVal() {
             var temp = +operandOne + +operandTwo;
             setResult(temp);
             break;
+        case "Action_operand_1_attach_zero":
+          setOperandOne(operandOne + '0')
+          break;
         case "Action_operand_1_attach_one":
           setOperandOne(operandOne + '1')
           break;
@@ -53,6 +56,9 @@ function AppVal() {
           break;
         case "Action_waiting_for_operand_2_for_plus":
           // do nothing
+          break;
+        case "Action_operand_2_attach_zero":
+          setOperandTwo(operandTwo + '0')
           break;
         case "Action_operand_2_attach_one":
           setOperandTwo(operandTwo + '1')
