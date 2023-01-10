@@ -139,23 +139,23 @@ function AppVal() {
           [{operandOne}] + [{operandTwo}] = [{result}] 
         </p>
         <p> 
-          <CalcButton onClick={() => getAction('Direction_zero')} buttonName = '0'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <CalcButton onClick={() => getAction('Direction_one')} buttonName = '1'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <CalcButton onClick={() => getAction('Direction_two')} buttonName = '2'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <CalcButton onClick={() => getAction('Direction_three')} buttonName = '3'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <CalcButton onClick={() => getAction('Direction_four')} buttonName = '4'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <CalcButton onClick={() => getAction('Direction_five')} buttonName = '5'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <CalcButton onClick={() => getAction('Direction_six')} buttonName = '6'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_seven')} buttonName = '7'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_eight')} buttonName = '8'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_nine')} buttonName = '9'/><br/><br/>
+         
+          <CalcButton onClick={() => getAction('Direction_four')} buttonName = '4'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_five')} buttonName = '5'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_six')} buttonName = '6'/><br/><br/>
+
+         
+         
+          <CalcButton onClick={() => getAction('Direction_one')} buttonName = '1'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_two')} buttonName = '2'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_three')} buttonName = '3'/><br/><br/>
           
-          
-          
-          
-          
+          <CalcButton onClick={() => getAction('Direction_zero')} buttonName = '0'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_plus')} buttonName = '+'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <CalcButton onClick={() => getAction('Direction_equal')} buttonName = '='/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_equal')} buttonName = '='/><br/><br/>
           <CalcButton onClick={() => getAction('Direction_clear')} buttonName = 'CA'/>
         </p>
         <p>
