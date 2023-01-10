@@ -97,6 +97,7 @@ function AppVal() {
           [{operandOne}] + [{operandTwo}] = [{result}] 
         </p>
         <p> 
+          <CalcButton onClick={() => getAction('Direction_zero')} buttonName = '0'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_one')} buttonName = '1'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_two')} buttonName = '2'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_three')} buttonName = '3'/><br/><br/>
